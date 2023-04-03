@@ -1,5 +1,5 @@
-// import 'package:dart_retrofit/json_annotation/json_annotation.dart';
-import 'package:dart_retrofit/freezed_annotation/freezed_annotation.dart';
+import 'package:dart_retrofit/json_annotation/json_annotation.dart';
+// import 'package:dart_retrofit/freezed_annotation/freezed_annotation.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 
@@ -53,6 +53,8 @@ void main(List<String> args) {
 
   /// json 테스트
   /// 
-  Sample aa = Sample(gg: StatusCodeEnhanced.found);
+  Sample aa = Sample(e: DateTime.now(), eee: [DateTime(2017, 9, 7, 17, 30)]);
+  Map<String,dynamic> aaa = aa.toJson();
+  Sample aaaa = Sample.fromJson(aaa);
   print(aa);
 }

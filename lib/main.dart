@@ -1,4 +1,5 @@
-import 'package:dart_retrofit/freezed_annotation/rest_client.dart';
+// import 'package:dart_retrofit/json_annotation/json_annotation.dart';
+import 'package:dart_retrofit/freezed_annotation/freezed_annotation.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 
@@ -31,7 +32,27 @@ void main(List<String> args) {
   // });
 
   /// freezed 확인
-  var aa = Task(id: 'id', name: 'name1');
-  var bb = Task(id: 'id', name: 'name1');
-  print(aa == bb);
+  // var aa = Task(id: 'id', name: 'name1');
+  // var bb = Task(id: 'id', name: 'name1');
+  // print(aa == bb);
+
+  /// json 테스트
+  // Sample aa = Sample(ff: StatusCode.found, gg: StatusCodeEnhanced.internalServerError);
+  // var bb = aa.toJson();
+
+  // Map<String,dynamic> abc1 = {'ff':'success'};
+  // Map<String,dynamic> abc2 = {'gg':'success'};
+
+  // Map<String,dynamic> abc1 = {'ff':200};
+  // Map<String,dynamic> abc2 = {'gg':200};
+
+  // Sample abc11 = Sample.fromJson(abc1);
+  // Sample abc22 = Sample.fromJson(abc2);
+
+  // print('aas');
+
+  /// json 테스트
+  /// 
+  Sample aa = Sample(gg: StatusCodeEnhanced.found);
+  print(aa);
 }

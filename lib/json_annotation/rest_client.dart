@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:dart_retrofit/json_annotation/task.dart';
 import 'package:dio/dio.dart' hide Headers;
-import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'rest_client.g.dart';
@@ -64,17 +64,4 @@ abstract class RestClient {
   Future<String> postUrlEncodedFormData(
     @Field() String hello,
   );
-}
-
-@JsonSerializable()
-class Task {
-  String? id;
-  String? name;
-  String? avatar;
-  String? createdAt;
-
-  Task({this.id, this.name, this.avatar, this.createdAt});
-
-  factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
-  Map<String, dynamic> toJson() => _$TaskToJson(this);
 }

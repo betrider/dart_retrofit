@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sample.g.dart';
@@ -103,4 +104,26 @@ enum StatusCodeEnhanced {
 
   const StatusCodeEnhanced(this.code);
   final int code;
+}
+
+
+@JsonSerializable()
+class Sample2 extends Equatable {
+  final String aa;
+  final int bb;
+  final bool cc;
+  final double dd;
+
+  const Sample2({
+    required this.aa,
+    required this.bb,
+    required this.cc,
+    required this.dd,
+  });
+  
+  @override
+  List<Object?> get props => [aa];
+
+  factory Sample2.fromJson(Map<String, dynamic> json) => _$Sample2FromJson(json);
+  Map<String, dynamic> toJson() => _$Sample2ToJson(this);
 }

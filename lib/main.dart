@@ -36,7 +36,7 @@ void main(List<String> args) {
   // var bb = Task(id: 'id', name: 'name1');
   // print(aa == bb);
 
-  /// json 테스트
+  /// json 테스트1
   // Sample aa = Sample(ff: StatusCode.found, gg: StatusCodeEnhanced.internalServerError);
   // var bb = aa.toJson();
 
@@ -51,10 +51,17 @@ void main(List<String> args) {
 
   // print('aas');
 
-  /// json 테스트
-  /// 
-  Sample aa = Sample(e: DateTime.now(), eee: [DateTime(2017, 9, 7, 17, 30)]);
-  Map<String,dynamic> aaa = aa.toJson();
-  Sample aaaa = Sample.fromJson(aaa);
-  print(aa);
+  /// json 테스트2
+  // Sample aa = Sample(e: DateTime.now(), eee: [DateTime(2017, 9, 7, 17, 30)]);
+  // Map<String,dynamic> aaa = aa.toJson();
+  // Sample aaaa = Sample.fromJson(aaa);
+  // print(aa);
+
+  /// json equatable
+  Sample2 bb = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
+  Sample2 bb2 = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
+  Map<String,dynamic> bbb = bb.toJson();
+  Sample2 bbbb = Sample2.fromJson(bbb);
+
+  print(bb == bb2);
 }

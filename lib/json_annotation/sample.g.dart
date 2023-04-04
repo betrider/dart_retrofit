@@ -106,3 +106,17 @@ const _$StatusCodeEnhancedEnumMap = {
   StatusCodeEnhanced.found: 'found',
   StatusCodeEnhanced.internalServerError: 'internalServerError',
 };
+
+Sample2 _$Sample2FromJson(Map<String, dynamic> json) => Sample2(
+      aa: json['aa'] as String,
+      bb: json['bb'] as int,
+      cc: json['cc'] as bool,
+      dd: (json['dd'] as num).toDouble(),
+    );
+
+Map<String, dynamic> _$Sample2ToJson(Sample2 instance) => <String, dynamic>{
+      'aa': instance.aa,
+      'bb': instance.bb,
+      'cc': instance.cc,
+      'dd': instance.dd,
+    };

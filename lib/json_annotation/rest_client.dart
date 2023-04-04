@@ -40,6 +40,9 @@ abstract class RestClient {
     @Header("Content-Type") String contentType,
   );
 
+  @GET("/tasks")
+  Future<HttpResponse<List<Task>>> getTasks6();
+
   @GET("/tasks/{id}")
   Future<Task> getTask(@Path("id") String id);
 

@@ -187,3 +187,17 @@ class Sample2 extends Equatable {
    @override
    int toJson(DateTime object) => object.millisecondsSinceEpoch;
  }
+
+ @JsonSerializable()
+class MultipartFile {
+  final List<int> file;
+  final String filename;
+  @JsonKey(name: 'content-type')
+  final String contentType;
+
+  MultipartFile({required this.file, required this.filename, required this.contentType});
+
+  factory MultipartFile.fromJson(Map<String, dynamic> json) => _$MultipartFileFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MultipartFileToJson(this);
+}

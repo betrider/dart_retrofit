@@ -1,6 +1,6 @@
 import 'package:dart_retrofit/json_annotation/json_annotation.dart';
 // import 'package:dart_retrofit/freezed_annotation/freezed_annotation.dart';
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide MultipartFile;
 import 'package:logger/logger.dart';
 
 final logger = Logger();
@@ -58,14 +58,32 @@ void main(List<String> args) {
   // print(aa);
 
   /// json equatable
-  var aa = Sample(e1: DateTime.now(), e2: DateTime.now(), eee: []);
-  Map<String,dynamic> aaa = aa.toJson();
-  Sample aaaa = Sample.fromJson(aaa);
+  // var aa = Sample(e1: DateTime.now(), e2: DateTime.now(), eee: []);
+  // Map<String,dynamic> aaa = aa.toJson();
+  // Sample aaaa = Sample.fromJson(aaa);
   
-  Sample2 bb = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
-  Sample2 bb2 = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
-  Map<String,dynamic> bbb = bb.toJson();
-  Sample2 bbbb = Sample2.fromJson(bbb);
+  // Sample2 bb = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
+  // Sample2 bb2 = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
+  // Map<String,dynamic> bbb = bb.toJson();
+  // Sample2 bbbb = Sample2.fromJson(bbb);
 
-  print(bb == bb2);
+  // print(bb == bb2);
+
+  /// multipart file 테스트
+  // final MultipartFile file = MultipartFile(
+  //   file: [0, 1, 2],
+  //   filename: 'example.txt',
+  //   contentType: 'text/plain',
+  // );
+
+  // final Map<String, dynamic> json = file.toJson();
+  // final String jsonString = jsonEncode(json);
+  // print(jsonString); // {"file":[0,1,2],"filename":"example.txt","content-type":"text/plain"}
+
+  // final Map<String, dynamic> decodedJson = jsonDecode(jsonString);
+  // final MultipartFile decodedFile = MultipartFile.fromJson(decodedJson);
+  // print(decodedFile.file); // [0, 1, 2]
+  // print(decodedFile.filename); // example.txt
+  // print(decodedFile.contentType); // text/plain
+ 
 }

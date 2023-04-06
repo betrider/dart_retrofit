@@ -164,3 +164,17 @@ Sample3 _$Sample3FromJson(Map<String, dynamic> json) => Sample3(
 Map<String, dynamic> _$Sample3ToJson(Sample3 instance) => <String, dynamic>{
       'value': const EpochDateTimeConverter().toJson(instance.value),
     };
+
+MultipartFile _$MultipartFileFromJson(Map<String, dynamic> json) =>
+    MultipartFile(
+      file: (json['file'] as List<dynamic>).map((e) => e as int).toList(),
+      filename: json['filename'] as String,
+      contentType: json['content-type'] as String,
+    );
+
+Map<String, dynamic> _$MultipartFileToJson(MultipartFile instance) =>
+    <String, dynamic>{
+      'file': instance.file,
+      'filename': instance.filename,
+      'content-type': instance.contentType,
+    };

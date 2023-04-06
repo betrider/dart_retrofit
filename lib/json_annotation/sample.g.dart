@@ -22,7 +22,7 @@ Sample _$SampleFromJson(Map<String, dynamic> json) {
     d1: (json['d1'] as num?)?.toDouble() ?? 1.1,
     d2: (json['d2'] as num?)?.toDouble() ?? 1.1,
     e1: DateTime.parse(json['jsonKey name'] as String),
-    e2: DateTime.parse(json['e2'] as String),
+    e2: Sample._fromJson(json['e2'] as Object),
     f1: $enumDecodeNullable(_$StatusCodeEnumMap, json['f1']) ??
         StatusCode.found,
     f2: $enumDecodeNullable(_$StatusCodeEnumMap, json['f2']) ??
@@ -97,7 +97,7 @@ Map<String, dynamic> _$SampleToJson(Sample instance) {
   val['d1'] = instance.d1;
   val['d2'] = instance.d2;
   val['jsonKey name'] = instance.e1.toIso8601String();
-  val['e2'] = instance.e2.toIso8601String();
+  val['e2'] = Sample._toJson(instance.e2);
   val['f1'] = _$StatusCodeEnumMap[instance.f1]!;
   val['f2'] = _$StatusCodeEnumMap[instance.f2]!;
   val['g1'] = _$StatusCodeEnhancedEnumMap[instance.g1]!;

@@ -59,6 +59,8 @@ void main(List<String> args) {
 
   /// json equatable
   var aa = Sample(e1: DateTime.now(), e2: DateTime.now(), eee: []);
+  Map<String,dynamic> aaa = aa.toJson();
+  Sample aaaa = Sample.fromJson(aaa);
   
   Sample2 bb = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
   Sample2 bb2 = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);

@@ -23,6 +23,7 @@ class Sample {
   double d2;
   @JsonKey(name: 'jsonKey name')
   DateTime e1;
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime e2;
   @JsonKey(required: true)
   StatusCode f1;
@@ -95,6 +96,15 @@ class Sample {
 
   factory Sample.fromJson(Map<String, dynamic> json) => _$SampleFromJson(json);
   Map<String, dynamic> toJson() => _$SampleToJson(this);
+
+  static T _fromJson<T>(Object json) {
+    return DateTime(2022) as T;
+  }
+
+  static String _toJson(DateTime object) {
+    // same logic as JsonConverter example
+    return 'asdf';
+  }
 }
 
 /// @JsonValue() 안한경우

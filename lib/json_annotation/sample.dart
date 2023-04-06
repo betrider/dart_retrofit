@@ -3,17 +3,36 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'sample.g.dart';
 
+toNull(_) => null;
+
 @JsonSerializable()
 class Sample {
   /// aaa 설명 222
   String a;
+  @JsonKey(defaultValue: 5)
   int b;
-  bool c;
-  double d;
-  DateTime e;
-  StatusCode f;
-  StatusCodeEnhanced g;
-  String? aa;
+  @JsonKey(includeIfNull: true)
+  bool? c1;
+  @JsonKey(includeIfNull: false)
+  bool? c2;
+  @JsonKey(includeIfNull: true)
+  bool c3;
+  @JsonKey(includeIfNull: false)
+  bool c4;
+  double d1;
+  double d2;
+  @JsonKey(name: 'jsonKey name')
+  DateTime e1;
+  DateTime e2;
+  @JsonKey(required: true)
+  StatusCode f1;
+  StatusCode f2;
+  @JsonKey(required: false)
+  StatusCodeEnhanced g1;
+  StatusCodeEnhanced g2;
+  @JsonKey(disallowNullValue: true)
+  String? aa1;
+  String? aa2;
   int? bb;
   bool? cc;
   double? dd;
@@ -38,12 +57,20 @@ class Sample {
   Sample({
     this.a = '11',
     this.b = 0,
-    this.c = false,
-    this.d = 1.1,
-    required this.e,
-    this.f = StatusCode.found,
-    this.g = StatusCodeEnhanced.success,
-    this.aa,
+    this.c1,
+    this.c2,
+    this.c3 = false,
+    this.c4 = false,
+    this.d1 = 1.1,
+    this.d2 = 1.1,
+    required this.e1,
+    required this.e2,
+    this.f1 = StatusCode.found,
+    this.f2 = StatusCode.found,
+    this.g1 = StatusCodeEnhanced.found,
+    this.g2 = StatusCodeEnhanced.found,
+    this.aa1,
+    this.aa2,
     this.bb,
     this.cc,
     this.dd,
@@ -127,3 +154,26 @@ class Sample2 extends Equatable {
   factory Sample2.fromJson(Map<String, dynamic> json) => _$Sample2FromJson(json);
   Map<String, dynamic> toJson() => _$Sample2ToJson(this);
 }
+
+ @JsonSerializable()
+ class Sample3 {
+   Sample3(this.value);
+
+   factory Sample3.fromJson(Map<String, dynamic> json) =>
+       _$Sample3FromJson(json);
+
+   @EpochDateTimeConverter()
+   final DateTime value;
+
+   Map<String, dynamic> toJson() => _$Sample3ToJson(this);
+ }
+
+ class EpochDateTimeConverter implements JsonConverter<DateTime, int> {
+   const EpochDateTimeConverter();
+
+   @override
+   DateTime fromJson(int json) => DateTime.fromMillisecondsSinceEpoch(json);
+
+   @override
+   int toJson(DateTime object) => object.millisecondsSinceEpoch;
+ }

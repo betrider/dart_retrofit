@@ -58,6 +58,8 @@ void main(List<String> args) {
   // print(aa);
 
   /// json equatable
+  var aa = Sample(e1: DateTime.now(), e2: DateTime.now(), eee: []);
+  
   Sample2 bb = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
   Sample2 bb2 = const Sample2(aa: 'aa', bb: 0, cc: false, dd: 1.1);
   Map<String,dynamic> bbb = bb.toJson();

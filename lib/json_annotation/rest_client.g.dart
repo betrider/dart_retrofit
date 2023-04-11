@@ -22,6 +22,31 @@ Map<String, dynamic> _$DataResponseToJson<T>(
       'value': toJsonT(instance.value),
     };
 
+RefreshTokenResponse _$RefreshTokenResponseFromJson(
+        Map<String, dynamic> json) =>
+    RefreshTokenResponse(
+      accessToken: json['access_token'] as String,
+      refreshToken: json['refresh_token'] as String,
+    );
+
+Map<String, dynamic> _$RefreshTokenResponseToJson(
+        RefreshTokenResponse instance) =>
+    <String, dynamic>{
+      'access_token': instance.accessToken,
+      'refresh_token': instance.refreshToken,
+    };
+
+RefreshTokenRequest _$RefreshTokenRequestFromJson(Map<String, dynamic> json) =>
+    RefreshTokenRequest(
+      refreshToken: json['refresh_token'] as String,
+    );
+
+Map<String, dynamic> _$RefreshTokenRequestToJson(
+        RefreshTokenRequest instance) =>
+    <String, dynamic>{
+      'refresh_token': instance.refreshToken,
+    };
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -39,6 +64,30 @@ class _RestClient implements RestClient {
   final Dio _dio;
 
   String? baseUrl;
+
+  @override
+  Future<RefreshTokenResponse> refreshToken(request) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RefreshTokenResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/refresh',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RefreshTokenResponse.fromJson(_result.data!);
+    return value;
+  }
 
   @override
   Future<List<Task>> getTasks(contentType) async {

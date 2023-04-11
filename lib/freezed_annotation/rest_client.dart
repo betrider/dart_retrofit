@@ -11,6 +11,9 @@ part 'rest_client.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
+  @POST('/refresh')
+  Future<RefreshTokenResponse> refreshToken(@Body() RefreshTokenRequest request);
+
   @GET("/tasks")
   @Headers(<String, dynamic>{"Content-Type": "application/json", "Custom-Header": "Your header"})
   Future<List<Task>> getTasks(
@@ -79,4 +82,23 @@ class Task with _$Task{
   }) = _Task;
 
   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
+}
+
+@freezed
+class RefreshTokenResponse with _$RefreshTokenResponse{
+  factory RefreshTokenResponse({
+    required String accessToken,
+    required String refreshToken,
+  }) = _RefreshTokenResponse;
+
+  factory RefreshTokenResponse.fromJson(Map<String, dynamic> json) => _$RefreshTokenResponseFromJson(json);
+}
+
+@freezed
+class RefreshTokenRequest with _$RefreshTokenRequest{
+  factory RefreshTokenRequest({
+    required String refreshToken,
+  }) = _RefreshTokenRequest;
+
+  factory RefreshTokenRequest.fromJson(Map<String, dynamic> json) => _$RefreshTokenRequestFromJson(json);
 }

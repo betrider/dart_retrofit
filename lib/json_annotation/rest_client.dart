@@ -11,6 +11,9 @@ part 'rest_client.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
+  @POST('/refresh')
+  Future<RefreshTokenResponse> refreshToken(@Body() RefreshTokenRequest request);
+
   @GET("/tasks")
   @Headers(<String, dynamic>{"Content-Type": "application/json", "Custom-Header": "Your header"})
   Future<List<Task>> getTasks(
@@ -111,4 +114,35 @@ class DataResponse<T> {
 
   // And here → ------------- ↓ ↓
   Map<String, dynamic> toJson(Object Function(T) toJsonT) => _$DataResponseToJson<T>(this, toJsonT);
+}
+
+
+@JsonSerializable()
+class RefreshTokenResponse {
+  @JsonKey(name: 'access_token')
+  String accessToken;
+
+  @JsonKey(name: 'refresh_token')
+  String refreshToken;
+
+  RefreshTokenResponse({required this.accessToken, required this.refreshToken});
+
+  factory RefreshTokenResponse.fromJson(Map<String, dynamic> json) =>
+      _$RefreshTokenResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RefreshTokenResponseToJson(this);
+}
+
+
+@JsonSerializable()
+class RefreshTokenRequest {
+  @JsonKey(name: 'refresh_token')
+  String refreshToken;
+
+  RefreshTokenRequest({required this.refreshToken});
+
+  factory RefreshTokenRequest.fromJson(Map<String, dynamic> json) =>
+      _$RefreshTokenRequestFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RefreshTokenRequestToJson(this);
 }

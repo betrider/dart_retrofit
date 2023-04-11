@@ -193,3 +193,301 @@ abstract class _Task implements Task {
   @JsonKey(ignore: true)
   _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;
 }
+
+RefreshTokenResponse _$RefreshTokenResponseFromJson(Map<String, dynamic> json) {
+  return _RefreshTokenResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RefreshTokenResponse {
+  String get accessToken => throw _privateConstructorUsedError;
+  String get refreshToken => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RefreshTokenResponseCopyWith<RefreshTokenResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RefreshTokenResponseCopyWith<$Res> {
+  factory $RefreshTokenResponseCopyWith(RefreshTokenResponse value,
+          $Res Function(RefreshTokenResponse) then) =
+      _$RefreshTokenResponseCopyWithImpl<$Res, RefreshTokenResponse>;
+  @useResult
+  $Res call({String accessToken, String refreshToken});
+}
+
+/// @nodoc
+class _$RefreshTokenResponseCopyWithImpl<$Res,
+        $Val extends RefreshTokenResponse>
+    implements $RefreshTokenResponseCopyWith<$Res> {
+  _$RefreshTokenResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? accessToken = null,
+    Object? refreshToken = null,
+  }) {
+    return _then(_value.copyWith(
+      accessToken: null == accessToken
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
+      refreshToken: null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_RefreshTokenResponseCopyWith<$Res>
+    implements $RefreshTokenResponseCopyWith<$Res> {
+  factory _$$_RefreshTokenResponseCopyWith(_$_RefreshTokenResponse value,
+          $Res Function(_$_RefreshTokenResponse) then) =
+      __$$_RefreshTokenResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String accessToken, String refreshToken});
+}
+
+/// @nodoc
+class __$$_RefreshTokenResponseCopyWithImpl<$Res>
+    extends _$RefreshTokenResponseCopyWithImpl<$Res, _$_RefreshTokenResponse>
+    implements _$$_RefreshTokenResponseCopyWith<$Res> {
+  __$$_RefreshTokenResponseCopyWithImpl(_$_RefreshTokenResponse _value,
+      $Res Function(_$_RefreshTokenResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? accessToken = null,
+    Object? refreshToken = null,
+  }) {
+    return _then(_$_RefreshTokenResponse(
+      accessToken: null == accessToken
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
+      refreshToken: null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_RefreshTokenResponse implements _RefreshTokenResponse {
+  _$_RefreshTokenResponse(
+      {required this.accessToken, required this.refreshToken});
+
+  factory _$_RefreshTokenResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_RefreshTokenResponseFromJson(json);
+
+  @override
+  final String accessToken;
+  @override
+  final String refreshToken;
+
+  @override
+  String toString() {
+    return 'RefreshTokenResponse(accessToken: $accessToken, refreshToken: $refreshToken)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RefreshTokenResponse &&
+            (identical(other.accessToken, accessToken) ||
+                other.accessToken == accessToken) &&
+            (identical(other.refreshToken, refreshToken) ||
+                other.refreshToken == refreshToken));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, accessToken, refreshToken);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RefreshTokenResponseCopyWith<_$_RefreshTokenResponse> get copyWith =>
+      __$$_RefreshTokenResponseCopyWithImpl<_$_RefreshTokenResponse>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RefreshTokenResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RefreshTokenResponse implements RefreshTokenResponse {
+  factory _RefreshTokenResponse(
+      {required final String accessToken,
+      required final String refreshToken}) = _$_RefreshTokenResponse;
+
+  factory _RefreshTokenResponse.fromJson(Map<String, dynamic> json) =
+      _$_RefreshTokenResponse.fromJson;
+
+  @override
+  String get accessToken;
+  @override
+  String get refreshToken;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RefreshTokenResponseCopyWith<_$_RefreshTokenResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+RefreshTokenRequest _$RefreshTokenRequestFromJson(Map<String, dynamic> json) {
+  return _RefreshTokenRequest.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RefreshTokenRequest {
+  String get refreshToken => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RefreshTokenRequestCopyWith<RefreshTokenRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RefreshTokenRequestCopyWith<$Res> {
+  factory $RefreshTokenRequestCopyWith(
+          RefreshTokenRequest value, $Res Function(RefreshTokenRequest) then) =
+      _$RefreshTokenRequestCopyWithImpl<$Res, RefreshTokenRequest>;
+  @useResult
+  $Res call({String refreshToken});
+}
+
+/// @nodoc
+class _$RefreshTokenRequestCopyWithImpl<$Res, $Val extends RefreshTokenRequest>
+    implements $RefreshTokenRequestCopyWith<$Res> {
+  _$RefreshTokenRequestCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? refreshToken = null,
+  }) {
+    return _then(_value.copyWith(
+      refreshToken: null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_RefreshTokenRequestCopyWith<$Res>
+    implements $RefreshTokenRequestCopyWith<$Res> {
+  factory _$$_RefreshTokenRequestCopyWith(_$_RefreshTokenRequest value,
+          $Res Function(_$_RefreshTokenRequest) then) =
+      __$$_RefreshTokenRequestCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String refreshToken});
+}
+
+/// @nodoc
+class __$$_RefreshTokenRequestCopyWithImpl<$Res>
+    extends _$RefreshTokenRequestCopyWithImpl<$Res, _$_RefreshTokenRequest>
+    implements _$$_RefreshTokenRequestCopyWith<$Res> {
+  __$$_RefreshTokenRequestCopyWithImpl(_$_RefreshTokenRequest _value,
+      $Res Function(_$_RefreshTokenRequest) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? refreshToken = null,
+  }) {
+    return _then(_$_RefreshTokenRequest(
+      refreshToken: null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_RefreshTokenRequest implements _RefreshTokenRequest {
+  _$_RefreshTokenRequest({required this.refreshToken});
+
+  factory _$_RefreshTokenRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_RefreshTokenRequestFromJson(json);
+
+  @override
+  final String refreshToken;
+
+  @override
+  String toString() {
+    return 'RefreshTokenRequest(refreshToken: $refreshToken)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RefreshTokenRequest &&
+            (identical(other.refreshToken, refreshToken) ||
+                other.refreshToken == refreshToken));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, refreshToken);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RefreshTokenRequestCopyWith<_$_RefreshTokenRequest> get copyWith =>
+      __$$_RefreshTokenRequestCopyWithImpl<_$_RefreshTokenRequest>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RefreshTokenRequestToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RefreshTokenRequest implements RefreshTokenRequest {
+  factory _RefreshTokenRequest({required final String refreshToken}) =
+      _$_RefreshTokenRequest;
+
+  factory _RefreshTokenRequest.fromJson(Map<String, dynamic> json) =
+      _$_RefreshTokenRequest.fromJson;
+
+  @override
+  String get refreshToken;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RefreshTokenRequestCopyWith<_$_RefreshTokenRequest> get copyWith =>
+      throw _privateConstructorUsedError;
+}

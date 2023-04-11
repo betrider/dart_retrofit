@@ -1,4 +1,5 @@
 import 'package:dart_retrofit/json_annotation/json_annotation.dart';
+import 'package:dart_retrofit/json_annotation/token_interceptor.dart';
 // import 'package:dart_retrofit/freezed_annotation/freezed_annotation.dart';
 import 'package:dio/dio.dart' hide MultipartFile;
 import 'package:logger/logger.dart';
@@ -6,7 +7,7 @@ import 'package:logger/logger.dart';
 final logger = Logger();
 void main(List<String> args) {
   final dio = Dio(); // Provide a dio instance
-  dio.options.headers["Demo-Header"] = "demo header"; // config your dio headers globally
+  dio.interceptors.add(TokenInterceptor(RestClient(dio)));
   final client = RestClient(dio); // baseUrl 옵션을 사용하는 경우 덮어씌웁니다.(우선적용)
 
   /// 단일 쿼리

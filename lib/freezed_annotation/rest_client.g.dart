@@ -20,6 +20,32 @@ Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'createdAt': instance.createdAt,
     };
 
+_$_RefreshTokenResponse _$$_RefreshTokenResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$_RefreshTokenResponse(
+      accessToken: json['accessToken'] as String,
+      refreshToken: json['refreshToken'] as String,
+    );
+
+Map<String, dynamic> _$$_RefreshTokenResponseToJson(
+        _$_RefreshTokenResponse instance) =>
+    <String, dynamic>{
+      'accessToken': instance.accessToken,
+      'refreshToken': instance.refreshToken,
+    };
+
+_$_RefreshTokenRequest _$$_RefreshTokenRequestFromJson(
+        Map<String, dynamic> json) =>
+    _$_RefreshTokenRequest(
+      refreshToken: json['refreshToken'] as String,
+    );
+
+Map<String, dynamic> _$$_RefreshTokenRequestToJson(
+        _$_RefreshTokenRequest instance) =>
+    <String, dynamic>{
+      'refreshToken': instance.refreshToken,
+    };
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
@@ -37,6 +63,30 @@ class _RestClient implements RestClient {
   final Dio _dio;
 
   String? baseUrl;
+
+  @override
+  Future<RefreshTokenResponse> refreshToken(request) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RefreshTokenResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/refresh',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RefreshTokenResponse.fromJson(_result.data!);
+    return value;
+  }
 
   @override
   Future<List<Task>> getTasks(contentType) async {

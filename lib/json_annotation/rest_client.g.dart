@@ -555,6 +555,37 @@ class _RestClient implements RestClient {
     return value;
   }
 
+  @override
+  Future<Task> testMethod(
+    aa,
+    bb,
+    cc,
+    dd,
+    ff,
+    ee,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'apikey': bb};
+    queryParameters.addAll(aa);
+    final _headers = <String, dynamic>{};
+    final _data = dd;
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Task>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/tasks/${cc}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = Task.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

@@ -100,6 +100,16 @@ abstract class RestClient {
   Future<String> postUrlEncodedFormData(
     @Field() String hello,
   );
+
+  @POST("/tasks/{cc}")
+  Future<Task> testMethod(
+    @Queries() Map<String, dynamic> aa, // queryParameters 형식에 추가(addAll) 
+    @Query('apikey') String bb, // queryParameters 형식에 추가
+    @Path('cc') String cc, // path 파라미터용
+    @Body() String dd, // class 형식으로 추가(1)
+    @Field() String ff, // Map 형식으로 추가(2)
+    @Part() String ee, // FormData 형식으로 추가(3)
+  );
 }
 
 @JsonSerializable(explicitToJson: true, genericArgumentFactories: true)

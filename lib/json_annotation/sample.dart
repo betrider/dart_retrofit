@@ -31,7 +31,7 @@ class Sample {
   @JsonKey(required: false)
   StatusCodeEnhanced g1;
   StatusCodeEnhanced g2;
-  @JsonKey(disallowNullValue: true)
+  @JsonKey(readValue: _readValueWithString)
   String? aa1;
   String? aa2;
   int? bb;
@@ -105,6 +105,11 @@ class Sample {
     // same logic as JsonConverter example
     return 'asdf';
   }
+
+  static String _readValueWithString(Map map, String key) {
+    return map[key];
+  }
+
 }
 
 /// @JsonValue() 안한경우

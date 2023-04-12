@@ -10,7 +10,6 @@ Sample _$SampleFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     requiredKeys: const ['f1'],
-    disallowNullValues: const ['aa1'],
   );
   return Sample(
     a: json['a'] as String? ?? '11',
@@ -31,7 +30,7 @@ Sample _$SampleFromJson(Map<String, dynamic> json) {
         StatusCodeEnhanced.found,
     g2: $enumDecodeNullable(_$StatusCodeEnhancedEnumMap, json['g2']) ??
         StatusCodeEnhanced.found,
-    aa1: json['aa1'] as String?,
+    aa1: Sample._readValueWithString(json, 'aa1') as String?,
     aa2: json['aa2'] as String?,
     bb: json['bb'] as int?,
     cc: json['cc'] as bool?,
@@ -102,7 +101,7 @@ Map<String, dynamic> _$SampleToJson(Sample instance) {
   val['f2'] = _$StatusCodeEnumMap[instance.f2]!;
   val['g1'] = _$StatusCodeEnhancedEnumMap[instance.g1]!;
   val['g2'] = _$StatusCodeEnhancedEnumMap[instance.g2]!;
-  writeNotNull('aa1', instance.aa1);
+  val['aa1'] = instance.aa1;
   val['aa2'] = instance.aa2;
   val['bb'] = instance.bb;
   val['cc'] = instance.cc;
